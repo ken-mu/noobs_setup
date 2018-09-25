@@ -3,11 +3,21 @@ jobs:
   build:
     docker:
       - image: debian:stretch
-    steps:
-      - checkout
-      - run: 
-          name: Install dependencies
-          command: apt-get update && apt-get install -y wget zip unzip
-      - run:
-          name: Begin setup NOOBS
-          command: sh ./setup.sh
+    jobs:
+      build:
+        steps:
+          - checkout
+          - run: 
+            name: Install dependencies
+            command: apt-get update && apt-get install -y wget zip unzip
+          - run:
+            name: Begin setup NOOBS
+            command: sh ./setup.sh
+      release-latest:
+        requires:
+          - build
+        branches:
+          only: master
+        steps:
+          name: Release artifacts
+          command: sh ./release.sh latest
