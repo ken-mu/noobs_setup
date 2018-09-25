@@ -5,4 +5,4 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-ghr $1 ./artifacts -delete
+ghr -u $CIRCLE_PROJECT_USERNAME -delete $1 ./artifacts
