@@ -11,7 +11,7 @@ fi
 if [ -e artifacts ]; then
   rm -r artifacts
 fi
-mkdir -p build/NOOBS_v${VERSION}
+mkdir -p build/NOOBS_v${VERSION} artifacts
 
 # download NOOBS
 wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip
