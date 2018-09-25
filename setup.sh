@@ -8,6 +8,9 @@ VERSION=2_8_2
 if [ -e build ]; then
   rm -r build
 fi
+if [ -e artifacts ]; then
+  rm -r artifacts
+fi
 mkdir -p build/NOOBS_v${VERSION}
 
 # download NOOBS
@@ -26,4 +29,4 @@ ls|egrep -v '^Raspbian$'|xargs rm -r
 sed -i -e '/^umount \/tmp\/1/i\touch /tmp/1/ssh' Raspbian/partition_setup.sh
 
 cd ..
-zip -r ../NOOBS_SETUP_v${VERSION}.zip .
+zip -r ../../artifacts/NOOBS_SETUP_v${VERSION}.zip .
