@@ -15,8 +15,10 @@ jobs:
     docker:
       - image: debian:stretch
     steps:
-      name: Release artifacts
-      command: sh ./release.sh latest
+      - checkout
+      - run:
+        name: Release artifacts
+        command: sh ./release.sh latest
 
 workflows:
   version: 2
