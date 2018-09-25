@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: debian:stretch
     jobs:
-      build:
+      - build:
         steps:
           - checkout
           - run: 
@@ -13,7 +13,7 @@ jobs:
           - run:
             name: Begin setup NOOBS
             command: sh ./setup.sh
-      release-latest:
+      - release-latest:
         requires:
           - build
         branches:
