@@ -19,7 +19,7 @@ workflows:
       - build
       - release-latest:
           requires:
-            - test
+            - build
           filters:
             branches:
               only: master
