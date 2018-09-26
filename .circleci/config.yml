@@ -5,14 +5,13 @@ jobs:
       - image: debian:stretch
     steps:
       - checkout
-      - run: 
+      - run:
         name: Install dependencies
-        command: |
-          apt-get update && apt-get install -y wget zip unzip
+        command: apt-get update && apt-get install -y wget zip unzip
       - run:
         name: Begin setup NOOBS
-        command: |
-          sh ./setup.sh
+        command: sh ./setup.sh
+
 workflows:
   version: 2
   test_and_release:
