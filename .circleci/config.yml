@@ -31,8 +31,6 @@ workflows:
             tags:
               only: /.*/
       - release-latest:
-          requires:
-            - build
           filters:
             branches:
               only: master
