@@ -22,18 +22,3 @@ jobs:
         name: Release artifacts
         command: |
           sh ./release.sh latest
-
-workflows:
-  version: 2
-  build_and_release:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
-      - release-latest:
-          filters:
-            branches:
-              only: master
