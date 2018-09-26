@@ -13,12 +13,3 @@ jobs:
         name: Begin setup NOOBS
         command: |
           sh ./setup.sh
-  release-latest:
-    docker:
-      - image: debian:stretch
-    steps:
-      - checkout
-      - run:
-        name: Release artifacts
-        command: |
-          sh ./release.sh latest
