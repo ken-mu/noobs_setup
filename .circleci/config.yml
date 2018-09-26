@@ -7,10 +7,12 @@ jobs:
       - checkout
       - run: 
         name: Install dependencies
-        command: apt-get update && apt-get install -y wget zip unzip
+        command: |
+          apt-get update && apt-get install -y wget zip unzip
       - run:
         name: Begin setup NOOBS
-        command: sh ./setup.sh
+        command: |
+          sh ./setup.sh
   release-latest:
     docker:
       - image: debian:stretch
@@ -18,7 +20,8 @@ jobs:
       - checkout
       - run:
         name: Release artifacts
-        command: sh ./release.sh latest
+        command: |
+          sh ./release.sh latest
 
 workflows:
   version: 2
