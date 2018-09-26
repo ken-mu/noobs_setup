@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: debian:stretch
     steps:
@@ -14,6 +14,12 @@ jobs:
 
 workflows:
   version: 2
-  test_and_release:
+  build_and_release:
     jobs:
-      - test
+      - build
+      - release-latest:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
