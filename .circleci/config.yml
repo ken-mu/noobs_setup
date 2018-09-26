@@ -30,7 +30,7 @@ workflows:
               only: /.*/
             tags:
               only: /.*/
-      - release_latest:
+      - release-latest:
           requires:
             - build
           filters:
