@@ -5,4 +5,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-ghr -u $CIRCLE_PROJECT_USERNAME -delete $1 ./artifacts
+wget https://github.com/tcnksm/ghr/releases/download/v0.12.0/ghr_v0.12.0_linux_amd64.tar.gz
+tar xvfz ghr_v0.12.0_linux_amd64.tar.gz
+
+./ghr_v0.12.0_linux_amd64/ghr -u $CIRCLE_PROJECT_USERNAME -delete $1 ./artifacts
