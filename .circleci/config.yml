@@ -27,7 +27,7 @@ jobs:
           command: ls -l && pwd
       - run:
           name: Install dependencies
-          command: apt-get update && apt-get install -y wget
+          command: apt-get update && apt-get install -y wget ca-certificates
       - run:
           name: Release artifacts
           command: sh ./release.sh latest
