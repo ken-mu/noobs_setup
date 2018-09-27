@@ -20,6 +20,8 @@ jobs:
     docker:
       - image: debian:stretch
     steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Check directory
           command: ls -l && pwd
@@ -29,8 +31,6 @@ jobs:
       - run:
           name: Release artifacts
           command: sh ./release.sh latest
-      - attach_workspace:
-          at: .
 
 workflows:
   version: 2
