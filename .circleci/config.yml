@@ -11,14 +11,23 @@ jobs:
       - run:
           name: Begin setup NOOBS
           command: sh ./setup.sh
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+      
   release-latest:
     docker:
       - image: debian:stretch
     steps:
-      - checkout
+      - run:
+          name: Install dependencies
+          command: apt-get update && apt-get install -y wget
       - run:
           name: Release artifacts
           command: sh ./release.sh latest
+      - attach_workspace:
+          at: .
 
 workflows:
   version: 2
