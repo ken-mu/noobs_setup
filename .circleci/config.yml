@@ -14,7 +14,8 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - .
+            - ./release.sh
+            - ./artifacts
       
   release-latest:
     docker:
