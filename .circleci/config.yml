@@ -14,21 +14,20 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - ./release.sh
-            - ./artifacts
+            - .
       
   release-latest:
     docker:
       - image: debian:stretch
     steps:
+      - run:
+          name: Install dependencies
+          command: apt-get update && apt-get install -y wget ca-certificates
       - attach_workspace:
           at: .
       - run:
           name: Check directory
           command: ls -l && pwd
-      - run:
-          name: Install dependencies
-          command: apt-get update && apt-get install -y wget ca-certificates
       - run:
           name: Release artifacts
           command: sh ./release.sh latest
