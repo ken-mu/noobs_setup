@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 if [ $# -ne 1 ]; then
   echo argument error
   exit 1
