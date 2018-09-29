@@ -12,7 +12,7 @@ tar xvfz ghr_v0.12.0_linux_amd64.tar.gz
 
 echo $1
 echo $CIRCLE_PROJECT_USERNAME
+echo $CIRCLE_PROJECT_REPONAME
 ls -l artifacts
 
-./ghr_v0.12.0_linux_amd64/ghr
-./ghr_v0.12.0_linux_amd64/ghr -u $CIRCLE_PROJECT_USERNAME -delete $1 ./artifacts/
+./ghr_v0.12.0_linux_amd64/ghr -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -replace $1 ./artifacts/
