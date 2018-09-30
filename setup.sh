@@ -28,7 +28,7 @@ ls|egrep -v '^Raspbian$'|xargs rm -r
 # enable SSH
 sed -i -e '/^umount \/tmp\/1/i\touch /tmp/1/ssh' Raspbian/partition_setup.sh
 
+# zip artifacts
 cd ../
 zip -r ../../artifacts/NOOBS_SETUP_v${VERSION}.zip .
 cd ../../
-ls -l && pwd
