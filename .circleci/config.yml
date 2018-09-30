@@ -15,7 +15,7 @@ jobs:
           root: .
           paths:
             - .
-      
+
   release-latest:
     docker:
       - image: debian:stretch
@@ -47,6 +47,9 @@ workflows:
   build_and_release:
     jobs:
       - build
+          filters:
+            tags:
+              only: /.*/
       - release-latest:
           requires:
             - build
