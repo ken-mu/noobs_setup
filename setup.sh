@@ -17,7 +17,7 @@ mkdir -p build/NOOBS_v${VERSION} artifacts
 wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip
 
 # checksum
-wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip.sha
+wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip.sha256
 sha256sum -c NOOBS_v${VERSION}.zip.sha
 
 # unzip
