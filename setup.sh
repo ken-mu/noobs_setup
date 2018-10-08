@@ -15,6 +15,12 @@ mkdir -p build/NOOBS_v${VERSION} artifacts
 
 # download NOOBS
 wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip
+
+# checksum
+wget http://downloads.raspberrypi.org/NOOBS/images/NOOBS-2018-06-29/NOOBS_v${VERSION}.zip.sha
+sha256sum -c NOOBS_v${VERSION}.zip.sha
+
+# unzip
 unzip NOOBS_v${VERSION}.zip -d build/NOOBS_v${VERSION}
 
 # append "silentinstall"
